@@ -1,6 +1,6 @@
                                                                   ** Sales-analysis**
 
-In this project you can see varius data about sales information
+In this project you can see varius data about company's sales
 
 - Ranking of sales by country and gender
 - Sales by manager with number of clients, margins and more
