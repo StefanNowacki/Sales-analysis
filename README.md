@@ -1,4 +1,4 @@
-                                                                   Sales-analysis
+                                                                  ** Sales-analysis**
 
 In this project you can see varius data about sales information
 
