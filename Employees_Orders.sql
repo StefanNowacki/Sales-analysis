@@ -42,7 +42,7 @@ SELECT
                 0
         END
     ) "men sell",
-    round(SUM(
+    ROUND(SUM(
         CASE
             WHEN c.gender = 'F' THEN
                 o.order_total
@@ -50,7 +50,7 @@ SELECT
                 0
         END
     ) / SUM(o.order_total) * 100, 2) AS "%_women",
-    round(SUM(
+    ROUND(SUM(
      CASE
             WHEN c.gender = 'M' THEN
                 o.order_total
@@ -180,15 +180,15 @@ FROM
     JOIN ora$ptt_margin   tab2 ON tab1.seller = tab2.seller;
 
 
-SELECT
-    tab1.*,
-    tab2.avg_margin_transaction,
-    tab2.avg_margin_sales
-FROM
-    ora$ptt_seller_data   tab1
-    JOIN ora$ptt_margin   tab2 ON tab1.seller = tab2.seller
-ORDER BY
-    tab1.sales ASC;
+-- SELECT
+--     tab1.*,
+--     tab2.avg_margin_transaction,
+--     tab2.avg_margin_sales
+-- FROM
+--     ora$ptt_seller_data   tab1
+--     JOIN ora$ptt_margin   tab2 ON tab1.seller = tab2.seller
+-- ORDER BY
+--     tab1.sales ASC;
 
 
 -- sales by manager with number of clients, salary, average maring by transaction and sales. 
@@ -203,7 +203,7 @@ SELECT
     round(AVG((oi.unit_price / p.min_price * 100) - 100), 2) AS avg_margin_transaction,
     round(100 *(SUM(oi.unit_price * oi.quantity) / SUM(p.min_price * oi.quantity) - 1), 2) AS avg_margin_sales
 FROM
-    orders                o
+    orders                     o
     JOIN customers             c ON o.customer_id = c.customer_id
     JOIN employees             e ON c.account_mgr_id = e.employee_id
     JOIN order_items           oi ON o.order_id = oi.order_id
